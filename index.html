@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Methi Thepla</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent-1: #4CAF50;
+      --accent-2: #FF9800;
+      --text-color: #333;
+      --bg-light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero-bg {
+      position: relative;
+      background: url('images/frontbackgroundimage.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-bg .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 20px;
+    }
+
+    .brand-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 6rem;
+      font-weight: bold;
+      color: var(--accent-1);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      color: var(--accent-2);
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .chip {
+      display: inline-block;
+      background: #eee;
+      color: #444;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin: 3px;
+      font-size: 14px;
+    }
+
+    .cta .btn {
+      background: var(--accent-1);
+      color: white;
+      padding: 12px 25px;
+      margin: 5px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .cta .btn:hover {
+      background: #388E3C;
+    }
+
+    .cta .btn-ghost {
+      background: transparent;
+      color: var(--accent-1);
+      border: 2px solid var(--accent-1);
+    }
+
+    .pill { 
+      display: inline-block; 
+      background: var(--accent-1); 
+      color: white; 
+      padding: 5px 15px; 
+      border-radius: 20px; 
+      font-size: 13px; 
+      margin-bottom: 5px; 
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ---------- OTHER SECTIONS ---------- */
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--accent-2);
+    }
+
+    /* ---------- MENU ---------- */
+    .menu-items {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      color: var(--accent-1);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* ---------- OFFER SECTION ---------- */
+    .offer-section {
+      background: #ffefcc;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .offer-section h2 {
+      color: #d35400;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .offer-section p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .offer-section input, .offer-section button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .offer-section button {
+      background: #d35400;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .offer-section button:hover {
+      background: #b54300;
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: white;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      background: #f9f9f9;
+    }
+
+    .gallery-card p {
+      padding: 5px;
+      font-size: 0.9rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    /* ---------- REVIEWS ---------- */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .stars {
+      color: #f5a623;
+      font-size: 1.2rem;
+    }
+
+    /* DELIVERY BADGE NEXT TO MENU */
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delivery-badge {
+  flex: 1;
+  background: linear-gradient(135deg, #4CAF50, #FF9800);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.delivery-badge .small-text {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive: Move badge below menu items for small screens */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .delivery-badge {
+    width: 80%;
+  }
+}
+
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--accent-1);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <header id="home" class="hero hero-bg">
+    <div class="overlay"></div>
+    <div class="container hero-grid">
+      <h1 class="brand-name">Yash Methi Thepla</h1>
+      <p class="tagline">Taste that feels like home</p>
+      <p class="hero-description">Daily fresh batches, premium ingredients, aur har thepla me pyaar. Perfect for breakfast, travel, aur office tiffin.</p>
+      <div class="badge-row">
+        <span class="chip">No Preservatives</span>
+        <span class="chip">Fresh Methi</span>
+        <span class="chip">Vacuum Pack (on request)</span>
+        <br><br>
+        <div><span class="pill">✨ Fresh • Hygienic • Homemade</span></div>
+        <br>
+      </div>
+      <div class="cta" style="margin-top:16px">
+        <a href="#menu" class="btn" aria-label="See menu">See Menu</a>
+        <a href="#contact" class="btn btn-ghost" aria-label="Contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU SECTION -->
+<section id="menu" style="position: relative;">
+  <h2>Our Menu</h2>
+  <div class="menu-container">
+    <!-- Menu Items -->
+    <div class="menu-items" style="flex:3;">
+      <div class="menu-card">
+        <img src="images/methi-thepla.jpg" alt="Classic Methi Thepla" class="menu-image" />
+        <h3>Classic Methi Thepla</h3>
+        <p class="price">₹40</p>
+        <p class="description">Freshly made traditional Gujarati methi thepla with maharashtrian tadka, perfect for every mood.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Delivery Badge -->
+     <section>
+    <div class="delivery-badge">
+      🚚 FREE HOME DELIVERY
+      <p class="small-text">On <b>10 packets</b><br>within <b>5 km area</b></p>
+    </div>
+  </div>
+</section>
+
+  
+
+  <!-- OFFER SECTION -->
+  <section class="offer-section" id="offer">
+    <h2>Special Offer 🎉</h2>
+    <p>Buy upto <strong>10 packets</strong> and get <strong>2% OFF</strong>!</p>
+    <label for="qty">Enter Quantity: </label>
+    <input type="number" id="qty" min="1" value="1">
+    <button onclick="calculateOffer()">Calculate Price</button>
+    <p id="result"></p>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <h2>Our Journey</h2>
+    <p class="muted">Some proud and happy moments of Yash Methi Thepla.</p>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="images/certificate_thepla.jpg" alt="Certificate">
+        <p><b>Proudly certified by Samarth Mahila Bahudeshiya Sanstha</b></p>
+      </div>
+      <div class="gallery-card">
+        <img src="images/business_card.jpg" alt="Business card">
+        <p><b>Our Business card</b></p>
+      </div>
+      <div class="gallery-card">
+        <img src="images/methi-thepla.jpg" alt="Travel pack">
+        <p><b>Perfect for travel and office tiffin , Freshly made with love ❤️</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Expanded view">
+  </div>
+
+  <!-- REVIEWS SECTION -->
+  <section id="reviews" style="background:#f8fcf9">
+    <h2>What Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>“Soft, tasty, full marks! Perfect for office tiffin.”</p>
+        <small>— Kavita, Thergaon Pune</small>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>“Travel pack stayed fresh for 2 days during my trip!”</p>
+        <small>— Mohit, Kalewadi</small>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>“Hygienic & homely taste. My kids just love it!”</p>
+        <small>— Aarti, Pimpri</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="card" style="padding:18px">
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px">
+          <div>
+            <strong>Phone</strong>
+            <p class="muted"><a href="tel:+919371479072">+91 93714 79072</a></p>
+          </div>
+          <div>
+            <strong>WhatsApp</strong>
+            <p class="muted"><a href="https://wa.me/919371479072" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+          </div>
+          <div>
+            <strong>Address</strong>
+            <p class="muted">Wakad Datta Mandir Road, Pune Maharashtra</p>
+          </div>
+        </div>
+        <div class="cta" style="margin-top:12px">
+          <a class="btn" href="https://wa.me/919371479072?text=Hi!%20I%20want%20to%20know%20today's%20methi%20thepla%20availability." target="_blank" rel="noopener">Ask Availability on WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+919371479072">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <small>© <span id="year"></span> Yash Methi Thepla. All rights reserved.</small>
+      <small>Made with ♥ at home kitchen.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Year auto-update
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const galleryImages = document.querySelectorAll('.gallery-card img');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    // Offer calculation
+    const pricePerPacket = 40; // Rs.40 per packet
+    function calculateOffer() {
+      let qty = document.getElementById('qty').value;
+      let total = qty * pricePerPacket;
+      let discount = 0;
+
+      if (qty >= 10) {
+        discount = total * 0.02; // 2% discount
+        total = total - discount;
+      }
+
+      document.getElementById('result').innerText =
+        qty >= 10
+        ? `Congratulations! You got ₹${discount.toFixed(2)} discount. Total: ₹${total.toFixed(2)}`
+        : `Total: ₹${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
